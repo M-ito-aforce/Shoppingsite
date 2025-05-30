@@ -9,14 +9,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import jp.co.aforce.beans.User_beans;
-import jp.co.aforce.dao.User_dao;
+import jp.co.aforce.beans.UseBeans;
+import jp.co.aforce.dao.UserDao;
 
 /**
  * Servlet implementation class User_servlet
  */
 @WebServlet(urlPatterns = {"/views/login-in"})
-public class User_servlet extends HttpServlet {
+public class UseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void doPost(
@@ -29,8 +29,8 @@ public class User_servlet extends HttpServlet {
 
 		
 		try {
-			User_dao dao = new User_dao();
-			User_beans user =dao.User_servlet (MEMBER_id,PASSWORD);
+			UserDao dao = new UserDao();
+			UseBeans user =dao.User_servlet (MEMBER_id,PASSWORD);
 			if(user != null){
 				HttpSession session = request.getSession();
 				

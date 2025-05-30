@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import jp.co.aforce.beans.User_beans;
+import jp.co.aforce.beans.UseBeans;
 import jp.co.aforce.tool.DAO;
 
-public class User_dao extends DAO{
-	public User_beans User_servlet (String MEMBER_id, String PASSWORD)
+public class UserDao extends DAO{
+	public UseBeans User_servlet (String MEMBER_id, String PASSWORD)
 	throws Exception {
-		User_beans users =null;
+		UseBeans users =null;
 		
 		Connection con = getConnection(); 
 		
@@ -24,7 +24,7 @@ public class User_dao extends DAO{
 		
 
 		while (rs.next()) {
-			users = new User_beans();
+			users = new UseBeans();
 			users.setMEMBER_id(rs.getString("MEMBER_id"));
 			users.setPASSWORD(rs.getString("PASSWORD"));
 			users.setLAST_NAME(rs.getString("LAST_NAME"));
