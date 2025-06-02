@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>エラー</title>
 </head>
 <body>
   <p>IDもしくはパスワードが違います</p>
+  <!-- hrefで指定したURLに戻る -->
   <a href = "login-in.jsp" >戻る</a>
 
 </body>
