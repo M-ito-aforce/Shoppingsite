@@ -1,4 +1,4 @@
-package jp.co.aforce.tool;
+package jp.co.aforce.dao;
 
 import java.sql.Connection;
 

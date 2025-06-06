@@ -2,9 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@include file="../header.html" %>
 <%@taglib prefix ="c" uri = "jakarta.tags.core" %>
+<!-- LoginServletからuserという変数、
+     UserBeanからLAST_NAMEを持ってきている -->
 <p>こんにちは、 ${user.LAST_NAME } さん！</p>
 
-<input type ="submit" value ="修正" >
-<input type ="submit" value ="削除" >
-<input type ="submit" value ="ログアウト" >
+
+  <a href = "user-edit.jsp" >修正</a><br>
+  <a href = "" >削除</a><br>
+  <!-- これを押下するとログイン画面に戻る -->
+  <a href = "login-in.jsp" >ログアウト</a><br>
 <%@include file="../footer.html" %>
