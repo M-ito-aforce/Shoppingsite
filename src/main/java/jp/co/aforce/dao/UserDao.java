@@ -104,19 +104,33 @@ public class UserDao extends DAO {
 
 	}
 
-	public void deleteUser(UserBean user) {
-		try {
-				
-				String sql= "DELETE from users where MEMBER_id=?";
-				Connection con = getConnection(); 
-				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setString(1, user.getMEMBER_id());
-				
-		} catch (Exception e) {
-			e.printStackTrace();
-	
+	//user-add.jspのユーザー登録メソッド
+	public boolean userDelete(String MEMBER_id)
+			throws Exception {
+		//boolean型のaddUserはfalseという値を持っている
+		boolean addUser = false;
+		//Connection型のconはgetConnecttionの結果の値を持っている
+		Connection con = getConnection();
+
+		String sql = "DELETE from users where MEMBER_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		//sqlインジェクション対策で値を後から入力する
+		ps.setString(1,MEMBER_id);
+		//何行目が変更されたか
+		int line = ps.executeUpdate();
+
+		if (line > 0) {
+			addUser = true;
+		} else {
+			addUser = false;
 		}
 
-}
+		ps.close();
+		con.close();
+
+		return addUser;
+
+	}
 
 }
