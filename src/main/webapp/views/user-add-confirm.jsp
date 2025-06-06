@@ -56,7 +56,7 @@ String address = request.getParameter("ADDRESS");
     <input type="submit" value="登録"><br>
   </form>
 
-  <a href = "">
+  <a href = "user-add.jsp"></a>
 
 </body>
 </html>
