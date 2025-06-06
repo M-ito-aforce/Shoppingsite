@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>削除してよろしいですか？</h1>
-<label for= "LAST_NAME" >
+<label for= "LAST_NAME" ><%="LAST_NAME" %></label>
+<label for= "FIRST_NAME" ><%="FIRST_NAME" %></label>
 </body>
 </html>
