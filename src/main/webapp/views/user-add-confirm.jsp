@@ -46,7 +46,7 @@ String address = request.getParameter("ADDRESS");
     <%=address%>
   </p>
   
-  <form action="register" method="post">
+  <form action="user-add-success.jsp" method="post">
     <input type="hidden" name="MEMBER_id" value = <%=id%>><br> 
     <input type="hidden" name="PASSWORD" value = <%=password%>><br> 
     <input type="hidden" name="LAST_NAME" value = <%=lastname%>><br>
@@ -56,7 +56,7 @@ String address = request.getParameter("ADDRESS");
     <input type="submit" value="登録"><br>
   </form>
 
-  <a href = "user-add.jsp"></a>
+<a href = "user-add.jsp">戻る</a>
 
 </body>
 </html>

@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>修正登録失敗</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>修正登録失敗</h1>
-<a href ="login-in.jsp">ログイン画面へ戻る</a>
+
 </body>
 </html>

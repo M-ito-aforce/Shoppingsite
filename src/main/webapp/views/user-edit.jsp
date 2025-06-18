@@ -13,6 +13,7 @@
 名前（姓）：<input type="text" name="lastName" maxlength="50" required value='<jsp:getProperty name="user" property="LAST_NAME" />'><br>
 名前(名):<input type="text" name="firstName" maxlength="50" required value='<jsp:getProperty name="user" property="FIRST_NAME" />'><br>
 メールアドレス:<input type="email" name="email" maxlength="100" required value='<jsp:getProperty name="user" property="EMAIL" />'><br>
+住所:<input type="text" name="address" maxlength="50" required value='<jsp:getProperty name="user" property="ADDRESS" />'><br>
 <input type="submit" value="確認"><br>
 </form>
 <a href="user-menu.jsp">会員メニュー画面へ戻る</a>

@@ -32,13 +32,14 @@ public class UserEditServlet extends HttpServlet {
 		userBean.setLAST_NAME(request.getParameter("LAST_NAME"));
 		userBean.setFIRST_NAME(request.getParameter("FIRST_NAME"));
 		userBean.setEMAIL(request.getParameter("EMAIL"));
+		userBean.setEMAIL(request.getParameter("ADDRESS"));
 		
 		UserDao userDao = new UserDao();
 		try {
 			boolean result = userDao.userUpdate(userBean);
 			
 			if (result) {
-				response.sendRedirect("user-success.jsp");
+				response.sendRedirect("user-edit-success.jsp");
 			}else {
 				response.sendRedirect("user-edit-false.jsp");
 			}

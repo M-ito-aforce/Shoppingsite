@@ -49,7 +49,7 @@ public class UserDao extends DAO {
 		//Connection型のconはgetConnecttionの結果の値を持っている
 		Connection con = getConnection();
 
-		String sql = "INSERT INTO users set MEMBER_id=?,PASSWORD=?,LAST_NAME=?,FIRST_NAME=?,ADDRESS=?,MAIL_ADDRESS=? ";
+		String sql = "INSERT INTO users (MEMBER_id, PASSWORD, LAST_NAME, FIRST_NAME, MAIL_ADDRESS, ADDRESS) VALUES (?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 
 		//sqlインジェクション対策で値を後から入力する
@@ -57,8 +57,9 @@ public class UserDao extends DAO {
 		ps.setString(2, user.getPASSWORD());
 		ps.setString(3, user.getLAST_NAME());
 		ps.setString(4, user.getFIRST_NAME());
-		ps.setString(5, user.getADDRESS());
 		ps.setString(6, user.getEMAIL());
+		ps.setString(5, user.getADDRESS());
+
 		//何行目が変更されたか
 		int line = ps.executeUpdate();
 
@@ -104,33 +105,19 @@ public class UserDao extends DAO {
 
 	}
 
-	//user-add.jspのユーザー登録メソッド
-	public boolean userDelete(String MEMBER_id)
-			throws Exception {
-		//boolean型のaddUserはfalseという値を持っている
-		boolean addUser = false;
-		//Connection型のconはgetConnecttionの結果の値を持っている
-		Connection con = getConnection();
-
-		String sql = "DELETE from users where MEMBER_id=?";
-		PreparedStatement ps = con.prepareStatement(sql);
-
-		//sqlインジェクション対策で値を後から入力する
-		ps.setString(1,MEMBER_id);
-		//何行目が変更されたか
-		int line = ps.executeUpdate();
-
-		if (line > 0) {
-			addUser = true;
-		} else {
-			addUser = false;
+	public void userDelete(UserBean user) {
+		try {
+				
+				String sql= "DELETE from users where MEMBER_id=?";
+				Connection con = getConnection(); 
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1, user.getMEMBER_id());
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+	
 		}
 
-		ps.close();
-		con.close();
-
-		return addUser;
-
-	}
+}
 
 }

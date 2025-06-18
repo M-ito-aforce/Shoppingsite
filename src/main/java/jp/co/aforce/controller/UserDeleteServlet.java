@@ -15,7 +15,7 @@ import jp.co.aforce.dao.UserDao;
 /**
  * Servlet implementation class UserDeleteServlet
  */
-@WebServlet(urlPatterns = { "/views/user-delete"})
+@WebServlet(urlPatterns = { "/views/user-Delete"})
 public class UserDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,19 +28,18 @@ public class UserDeleteServlet extends HttpServlet {
 	    
 		UserDao userDao = new UserDao();
 		try {
-			boolean result = userDao.userDelete(userBean.getMEMBER_id());
-
+			boolean result = UserDao.userDelete(userBean.getMEMBER_id());
+			
 			if (result) {
 				session.invalidate();
 			}
 				
-			response.sendRedirect("user-delete.jsp");
+			response.sendRedirect("user-delete-success.jsp");
 				
 		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 			//失敗した時用のjspを作る
-			//response.sendRedirect("user-edit-false.jsp");
+			response.sendRedirect("user-edit-false.jsp");
 		}
 		
 	}

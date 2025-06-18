@@ -13,7 +13,7 @@
 <label for= "LAST_NAME" ><jsp:getProperty name="user" property="LAST_NAME" /></label>
 <label for= "FIRST_NAME" ><jsp:getProperty name="user" property="FIRST_NAME" /></label>さん<br>
 
-<form action="user-delete" method="post">
+<form action="user-Delete" method="post">
 <input type = "submit" value ="はい"><br>
 </form>
 <a href="user-menu.jsp">会員メニュー画面へ戻る</a>
